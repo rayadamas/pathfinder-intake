@@ -9,7 +9,7 @@ Pathfinder is a conversational intake. It learns what someone wants before anyon
 No build step, no framework, no runtime dependencies. Clone it, run it, and change it by editing plain config files.
 
 ```bash
-git clone https://github.com/<you>/pathfinder-intake.git
+git clone https://github.com/rayadamas/pathfinder-intake.git
 cd pathfinder-intake
 npm start
 ```
