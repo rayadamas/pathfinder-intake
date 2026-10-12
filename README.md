@@ -4,6 +4,8 @@
 
 Pathfinder is a conversational intake. It learns what someone wants before anyone pitches them anything. It handles hesitation with the P.U.S.H. objection framework, and every recommendation it makes links back to something the person actually said.
 
+**[Try the live demo →](https://rayadamas.github.io/pathfinder-intake/)** · [Watch the sample walkthrough](https://rayadamas.github.io/pathfinder-intake/?sample)
+
 ![Pathfinder handling a hesitation with P.U.S.H.](docs/screenshots/02-push-hesitation.png)
 
 No build step, no framework, no runtime dependencies. Clone it, run it, and change it by editing plain config files.
