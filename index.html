@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pathfinder Intake</title>
+  <meta name="description" content="A conversational intake that learns someone's goals and obstacles, handles hesitation with the P.U.S.H. framework, and grounds every recommendation in their own words.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@500&family=Source+Sans+3:wght@400;600&display=swap">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <div class="app show-labels" id="app">
+    <header>
+      <div class="brand"><h1>Pathfinder</h1><span class="eyebrow">Conversational intake</span></div>
+      <div class="actions">
+        <button class="btn" id="labelsBtn" type="button" aria-pressed="true">P.U.S.H. labels</button>
+        <button class="btn" id="sampleBtn" type="button">Play a sample person</button>
+        <button class="btn" id="resetBtn" type="button">Start over</button>
+      </div>
+    </header>
+    <div class="tabs" role="tablist">
+      <button id="tabChat" role="tab" aria-selected="true" type="button">Conversation</button>
+      <button id="tabAvatar" role="tab" aria-selected="false" type="button">Avatar<span class="dot" id="avDot" hidden>0</span></button>
+    </div>
+    <main class="layout" id="layout" data-view="chat">
+      <section class="pane" id="chatPane" aria-label="Conversation">
+        <div class="log" id="log" aria-live="polite"></div>
+        <div class="composer" id="composer"></div>
+      </section>
+      <aside class="pane avatar" id="avatarPane" aria-label="Evolving avatar"></aside>
+    </main>
+  </div>
+  <noscript>Pathfinder needs JavaScript, and must be served over http (run <code>npm start</code>), not opened as a file.</noscript>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

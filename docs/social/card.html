@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pathfinder social card</title>
+<!-- Template for the social images. Rendered by `npm run screenshots` at ?variant=landscape|portrait|wide -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@500&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+  :root { --ink:#0E1A15; --deep:#0F2A22; --accent:#5CC4A2; --soft:#D4EAE1; --brass:#E2B85C; --paper:#EDF1EE; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 85% 110%, #1D6B57 0%, transparent 60%),
+      var(--deep);
+    color: var(--paper);
+    font: 400 20px/1.45 "Source Sans 3", system-ui, sans-serif;
+    overflow: hidden;
+  }
+  .frame { position: relative; height: 100%; display: grid; }
+  .mark { display: flex; align-items: center; gap: 12px; font: 700 26px/1 "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -.01em; }
+  .mark svg { width: 34px; height: 34px; }
+  .eyebrow { font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  h1 { font: 700 52px/1.04 "Bricolage Grotesque", system-ui, sans-serif; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .sub { color: #B9CCC3; margin: 0; max-width: 34ch; }
+  .points { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .points li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; }
+  .points b { font: 700 18px/1 "Bricolage Grotesque", sans-serif; color: var(--deep); background: var(--accent); border-radius: 7px; width: 30px; height: 30px; display: grid; place-items: center; }
+  .push { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .push div { border: 1px solid rgba(92,196,162,.35); border-radius: 12px; padding: 14px; }
+  .push b { display: block; font: 700 34px/1 "Bricolage Grotesque", sans-serif; color: var(--accent); }
+  .push span { font: 500 12px/1.3 "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #B9CCC3; }
+  .shot { border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08); display: block; }
+  .phone { border-radius: 28px; box-shadow: 0 30px 70px rgba(0,0,0,.5), 0 0 0 8px #0A1612, 0 0 0 9px rgba(255,255,255,.1); }
+  .foot { font: 500 13px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: #8FA79C; }
+
+  /* 1200 x 627 */
+  .landscape .frame { grid-template-columns: 470px 1fr; padding: 48px 0 48px 56px; gap: 40px; }
+  .landscape .copy { display: flex; flex-direction: column; gap: 18px; justify-content: center; }
+  .landscape h1 { font-size: 42px; }
+  .landscape .sub { display: none; }
+  .landscape .points { font-size: 17px; line-height: 1.35; }
+  .landscape .media { position: relative; }
+  .landscape .shot { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 980px; }
+  .landscape .push, .landscape .phone, .landscape .wide-only, .landscape .portrait-only { display: none; }
+
+  /* 1080 x 1350 */
+  .portrait .frame { grid-template-rows: auto minmax(0, 1fr) auto auto; padding: 64px 64px 56px; gap: 32px; }
+  .portrait .copy { display: flex; flex-direction: column; gap: 22px; }
+  .portrait h1 { font-size: 64px; }
+  .portrait .sub { font-size: 24px; max-width: 40ch; }
+  .portrait .points, .portrait .phone, .portrait .wide-only { display: none; }
+  .portrait .media { position: relative; min-height: 0; overflow: hidden; border-radius: 14px; margin-right: -64px; }
+  .portrait .shot { position: absolute; top: 0; left: 0; width: 1180px; }
+
+  /* 1600 x 1000 */
+  .wide .frame { grid-template-columns: 560px 1fr; padding: 72px 0 72px 80px; gap: 56px; }
+  .wide .copy { display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+  .wide h1 { font-size: 58px; }
+  .wide .sub { font-size: 22px; }
+  .wide .media { position: relative; }
+  .wide .shot { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1180px; }
+  .wide .phone { position: absolute; left: 520px; bottom: -40px; width: 300px; }
+  .wide .push, .wide .portrait-only { display: none; }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="copy">
+    <div class="mark">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#1D6B57"/><circle cx="16" cy="16" r="9" fill="none" stroke="#D4EAE1" stroke-width="2.5" stroke-dasharray="9 2.3"/><circle cx="16" cy="16" r="3.5" fill="#F4E8C9"/></svg>
+      Pathfinder
+    </div>
+    <span class="eyebrow">Conversational intake · open source</span>
+    <h1>Find the best next conversation, <em>not the first product mentioned.</em></h1>
+    <p class="sub">An intake that learns goals before it pitches, handles hesitation with P.U.S.H., and grounds every recommendation in the client's own words.</p>
+    <ul class="points">
+      <li><b>P</b><span>Pacify, Uncover, Show value, Hold: objection handling built into every turn</span></li>
+      <li><b>✓</b><span>Every recommendation cites what the person actually said</span></li>
+      <li><b>?</b><span>Questions it can't answer from approved facts go to a human, never a guess</span></li>
+    </ul>
+  </div>
+  <div class="media">
+    <img class="shot" id="shot" src="../screenshots/02-push-hesitation.png" alt="">
+    <img class="phone" src="../screenshots/06-mobile-conversation.png" alt="">
+  </div>
+  <div class="push portrait-only">
+    <div><b>P</b><span>Pacify</span></div>
+    <div><b>U</b><span>Uncover</span></div>
+    <div><b>S</b><span>Show value</span></div>
+    <div><b>H</b><span>Hold next step</span></div>
+  </div>
+  <div class="foot portrait-only">Diamond Ray Louden · Pathfinder Intake</div>
+</div>
+<script>
+  const v = new URLSearchParams(location.search).get('variant') || 'landscape';
+  document.body.className = v;
+  if (v === 'wide') document.getElementById('shot').src = '../screenshots/04-team-view.png';
+</script>
+</body>
+</html>
